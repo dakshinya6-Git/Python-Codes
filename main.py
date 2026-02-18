@@ -2,7 +2,6 @@ import heapq
 from collections import defaultdict
 
 def get_graph_from_user():
-    """Get graph from user input."""
     graph = defaultdict(dict)
     num_vertices = int(input("Enter number of vertices: "))
     
@@ -17,7 +16,7 @@ def get_graph_from_user():
             u, v = int(u), int(v)
             weight = int(weight)
             graph[u][v] = weight
-            graph[v][u] = weight  # Undirected graph
+            graph[v][u] = weight  
             print(f"Added edge {u}-{v}: {weight}")
         except:
             print("Invalid input. Use format: u v weight")
@@ -28,7 +27,7 @@ def prim_mst(graph, start):
     """Prim's algorithm for MST."""
     mst = []
     visited = set()
-    pq = [(0, start, None)]  # (cost, node, parent)
+    pq = [(0, start, None)]  
     
     while pq:
         cost, u, parent = heapq.heappop(pq)
@@ -46,7 +45,7 @@ def prim_mst(graph, start):
     
     return mst
 
-# Main execution
+
 if __name__ == "__main__":
     graph = get_graph_from_user()
     
@@ -60,3 +59,4 @@ if __name__ == "__main__":
         total_cost += w
     
     print(f"\nTotal MST cost: {total_cost}")
+
